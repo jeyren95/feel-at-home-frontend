@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* components CSS */
+@import './components/auth/_index.scss';
+@import './components/form/_index.scss';
+
+.public-page {
+  @apply h-screen flex justify-center items-center;
+}

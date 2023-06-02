@@ -1,0 +1,9 @@
+.login-form {
+  &__input-field {
+    @apply mb-14;
+  }
+
+  &__submit-button {
+    @apply text-center;
+  }
+}

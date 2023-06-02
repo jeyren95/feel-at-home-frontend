@@ -1,4 +1,4 @@
-import { AuthActionType, AuthDispatchAction, AuthState } from '../../models/auth';
+import { AuthActionType, type AuthDispatchAction, type AuthState } from '../../models/auth';
 
 const authReducer = (authState: AuthState, action: AuthDispatchAction) => {
   switch (action.type) {

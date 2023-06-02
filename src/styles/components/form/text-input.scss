@@ -1,0 +1,5 @@
+.text-input {
+  &__error {
+    @apply text-red-500 mt-3;
+  }
+}

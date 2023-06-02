@@ -1,5 +1,11 @@
-import { ReactElement } from 'react';
+import { type ReactElement } from 'react';
 
-const LoginPage = (): ReactElement => <div>Login page</div>;
+import LoginForm from '../components/auth/LoginForm';
+
+const LoginPage = (): ReactElement => (
+  <div className="public-page">
+    <LoginForm />
+  </div>
+);
 
 export default LoginPage;

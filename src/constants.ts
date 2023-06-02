@@ -1,4 +1,4 @@
-import { Page, UrlPath } from './models/common';
+import { type Page, UrlPath } from './models/common';
 
 import LoginPage from './pages/LoginPage';
 import Error404Page from './pages/Error404Page';

@@ -1,6 +1,6 @@
 import { createContext, useReducer, useContext, ReactElement } from 'react';
 
-import { AuthActionType, AuthState } from '../../models/auth';
+import { AuthActionType, type AuthState } from '../../models/auth';
 import authReducer from './reducer';
 
 const INITIAL_AUTH_STATE: AuthState = {

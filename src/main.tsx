@@ -5,6 +5,7 @@ import { StyledEngineProvider } from '@mui/styled-engine';
 
 import { type Page } from './models/common';
 import { PRIVATE_PAGES, PUBLIC_PAGES } from './constants';
+import './styles/index.scss';
 
 import AuthWrapper from './AuthWrapper';
 import { AuthContextProvider } from './hooks/auth';
