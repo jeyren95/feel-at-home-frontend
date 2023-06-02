@@ -25,5 +25,6 @@ module.exports = {
     'prettier/prettier': ['error'],
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
