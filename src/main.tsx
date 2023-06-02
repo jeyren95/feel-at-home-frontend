@@ -1,19 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { StyledEngineProvider } from '@mui/styled-engine';
 
-import UrlPath from './constants';
+import { type Page } from './models/common';
+import { PRIVATE_PAGES, PUBLIC_PAGES } from './constants';
 
-import DashboardPage from './pages/DashboardPage';
-import LoginPage from './pages/LoginPage';
-import Error404Page from './pages/Error404Page';
+import AuthWrapper from './AuthWrapper';
+import { AuthContextProvider } from './hooks/auth';
+
+const renderPublicPages = (pages: Page[]) =>
+  pages.map(({ path, page }) => <Route key={path} path={path} element={page()} />);
+
+const renderPrivatePages = (pages: Page[]) =>
+  pages.map(({ path, page }) => (
+    <Route key={path} path={path} element={<AuthWrapper>{page()}</AuthWrapper>} />
+  ));
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Route path={UrlPath.LOGIN} element={<LoginPage />} />
-      <Route path={UrlPath.DASHBOARD} element={<DashboardPage />} />
-      <Route path={UrlPath.NOT_FOUND} element={<Error404Page />} />
+      <StyledEngineProvider injectFirst>
+        <AuthContextProvider>
+          <Routes>
+            {renderPublicPages(PUBLIC_PAGES)}
+            {renderPrivatePages(PRIVATE_PAGES)}
+          </Routes>
+        </AuthContextProvider>
+      </StyledEngineProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
